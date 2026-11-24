@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-bg: #10120f;
+  --color-surface: #191c17;
+  --color-surface-2: #232820;
+  --color-fg: #efeae0;
+  --color-muted: #a39c90;
+  --color-line: #34382f;
+  --color-sage: #9aaf96;
+  --color-ink: #141710;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@keyframes frame-drift {
+  from {
+    transform: scale(1.06) translate3d(-1.2%, -0.6%, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(1.2%, 0.8%, 0);
+  }
+}
+
+.frame-drift {
+  animation: frame-drift 14s ease-in-out alternate infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame-drift {
+    animation: none;
+  }
+}
